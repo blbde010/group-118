@@ -27,7 +27,7 @@ def hash_children(self, left_child, right_child):
         combined_hash = hashlib.sha256(combined_data.encode()).hexdigest()
         return combined_hash
 
-# 示例用法
+#test
 leaves = ["A", "B", "C", "D"]
 merkle_tree = MerkleTree(leaves)
 root_hash = merkle_tree.tree
