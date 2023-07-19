@@ -9,16 +9,16 @@ def naive_birthday_attack():
     
     while True:
         message = generate_random_message(k)  # 生成随机消息
-        start_time = time.time()  # 记录开始时间
+        
         hash_value = calculate_sm3_hash(message.encode())  # 计算哈希值
-        end_time = time.time()  # 记录结束时间
+       
         
         if hash_value in hash_values:
             collision_message = hash_values[hash_value]
             print("Collision found!")
             print("Message 1:", collision_message)
             print("Message 2:", message)
-            print("Time elapsed:", end_time - start_time, "seconds")
+            
             return collision_message, message
         
         hash_values[hash_value] = message
@@ -35,4 +35,7 @@ def generate_random_message(k):
     return message
 
 # 执行生日攻击
+start_time = time.time()
 collision_message, message = naive_birthday_attack()
+end_time = time.time()
+print("Time elapsed:", end_time - start_time, "seconds")
