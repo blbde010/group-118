@@ -22,7 +22,7 @@ def sm3(message):
     for i in range(0, len(message), 64):
         w = list(struct.unpack('>16I', message[i:i+64]))
 
-        # 循环展开
+        # 循环展开（我也不知道改来改去还有没有循环展开）
         for j in range(16, 64):
             w.append(
  rotate_left(w[j-16] ^ w[j-9] ^ (rotate_left(w[j-3], 15)), 1) ^ (rotate_left(w[j-13], 7)) ^ w[j-6]
@@ -39,7 +39,7 @@ def sm3(message):
 
         
         
-        # 数据对齐
+        
         
 
         
